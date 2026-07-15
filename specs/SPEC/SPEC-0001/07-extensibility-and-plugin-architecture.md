@@ -12,10 +12,10 @@ references:
   - SPEC-0001-C3: Compilation Pipeline — Stage-by-Stage
   - SPEC-0001-C4: Module Responsibilities & Interfaces
   - SPEC-0001-C6: Deployment & Runtime Considerations
-  - SPEC-0601: Plugin System (planned)
+  - SPEC-0601: Plugin System
   - RFC-0001: Grammar DSL (proposed)
   - RFC-0002: Grammar Bytecode (proposed)
-  - ADR-0005: Why Plugin Architecture (planned)
+  - ADR-0005: Why Plugin Architecture
   - KB-0001: Roots (planned)
   - KB-0007: Morphological Features Taxonomy (planned)
 ---

@@ -14,7 +14,7 @@ references:
   - SPEC-0001-C5: Data Flow & Intermediate Representations (IR-9, IR-10)
   - SPEC-0001-C9: Performance Targets & Constraints
   - RFC-0002: Grammar Bytecode Format (proposed)
-  - SPEC-0301: Grammar Runtime (planned)
+  - SPEC-0301: Grammar Runtime
 supersedes: None
 ---
 
@@ -62,7 +62,7 @@ The GVM is the boundary between the **Compilation Layer** (MOD-01 through MOD-09
 | **SPEC-0001-C4** | GVM interface (execute, verify, version) |
 | **SPEC-0001-C5** | IR-9 (bytecode) → IR-10 (AnalysisResult) transformation |
 | **SPEC-0001-C9** | Performance targets for GVM execution |
-| **SPEC-0301** | Full Grammar Runtime specification (planned) |
+| **SPEC-0301** | Full Grammar Runtime specification |
 
 ### 1.3 Terms and Definitions
 
@@ -1398,7 +1398,7 @@ agos gvm test --cross-impl --impls=rust,c,python,js,swift
 | SPEC-0001-C5 | Data Flow & Intermediate Representations | IR-9 → GVM → IR-10 |
 | SPEC-0001-C9 | Performance Targets | GVM latency/throughput targets |
 | RFC-0002 | Grammar Bytecode Format | Binary format consumed by GVM |
-| SPEC-0301 | Grammar Runtime | Full runtime specification (planned) |
+| SPEC-0301 | Grammar Runtime | Full runtime specification |
 
 ### 13.2 External References
 

@@ -11,7 +11,7 @@ references:
   - SPEC-0001: Platform Architecture (Chapter 1)
   - SPEC-0101: Morphology Engine (planned)
   - SPEC-0201: Rule Engine (planned)
-  - SPEC-0301: Grammar Runtime (planned)
+  - SPEC-0301: Grammar Runtime
   - ADR-0002: Why Grammar Bytecode (planned)
   - ADR-0003: Why Grammar IR (planned)
 supersedes: None

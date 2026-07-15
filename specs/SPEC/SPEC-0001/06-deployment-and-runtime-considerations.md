@@ -11,11 +11,11 @@ references:
   - SPEC-0001-C2: System Architecture Overview
   - SPEC-0001-C4: Module Responsibilities & Interfaces
   - SPEC-0001-C5: Data Flow & Intermediate Representations
-  - SPEC-0301: Grammar Runtime (planned)
-  - SPEC-0601: Plugin System (planned)
+  - SPEC-0301: Grammar Runtime
+  - SPEC-0601: Plugin System
   - RFC-0003: Grammar Virtual Machine (proposed)
   - ADR-0001: Compiler Architecture Rationale
-  - ADR-0004: Why Offline-First (planned)
+  - ADR-0004: Why Offline-First
 ---
 
 # Chapter 6: Deployment & Runtime Considerations

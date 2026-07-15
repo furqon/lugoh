@@ -15,7 +15,7 @@ references:
   - SPEC-0001-C8: Security, Validation & Error Handling (KB Integrity)
   - SPEC-0001-C9: Performance Targets & Constraints (KB Size & Lookup)
   - SPEC-0101: Morphology Engine (planned)
-  - SPEC-0401: Knowledge Graph Engine (planned)
+  - SPEC-0401: Knowledge Graph Engine
   - KB-0002: Wazan Database
   - KB-0003: Verb Forms
   - KB-0004: Noun Patterns

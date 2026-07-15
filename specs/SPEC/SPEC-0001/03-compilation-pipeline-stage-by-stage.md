@@ -12,7 +12,7 @@ references:
   - SPEC-0001-C2: System Architecture Overview
   - SPEC-0101: Morphology Engine (planned)
   - SPEC-0201: Rule Engine (planned)
-  - SPEC-0401: Knowledge Graph Engine (planned)
+  - SPEC-0401: Knowledge Graph Engine
   - RFC-0001: Grammar DSL (proposed)
   - RFC-0002: Grammar Bytecode (proposed)
   - KB-0001: Roots (planned)

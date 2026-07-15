@@ -13,9 +13,9 @@ references:
   - SPEC-0001-C4: Module Responsibilities & Interfaces
   - SPEC-0101: Morphology Engine (planned)
   - SPEC-0201: Rule Engine (planned)
-  - SPEC-0301: Grammar Runtime (planned)
-  - SPEC-0401: Knowledge Graph Engine (planned)
-  - SPEC-0501: Explanation Engine (planned)
+  - SPEC-0301: Grammar Runtime
+  - SPEC-0401: Knowledge Graph Engine
+  - SPEC-0501: Explanation Engine
   - RFC-0002: Grammar Bytecode (proposed)
   - RFC-0003: Grammar Virtual Machine (proposed)
   - KB-0007: Morphological Features Taxonomy (planned)

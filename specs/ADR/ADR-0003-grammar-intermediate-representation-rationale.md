@@ -16,7 +16,7 @@ references:
   - SPEC-0001-C5: Data Flow & Intermediate Representations (IR-6, IR-7, IR-8)
   - SPEC-0001-C7: Extensibility & Plugin Architecture
   - SPEC-0201: Rule Engine (planned)
-  - SPEC-0401: Knowledge Graph Engine (planned)
+  - SPEC-0401: Knowledge Graph Engine
   - RFC-0001: Grammar DSL (proposed)
 supersedes: None
 ---
@@ -574,7 +574,7 @@ This ADR supersedes no prior decision.
 This ADR is referenced by:
 - SPEC-0001: Platform Architecture (Chapters 2, 3, 5, 7)
 - SPEC-0201: Rule Engine (planned)
-- SPEC-0401: Knowledge Graph Engine (planned)
+- SPEC-0401: Knowledge Graph Engine
 - RFC-0001: Grammar DSL (proposed)
 
 ---

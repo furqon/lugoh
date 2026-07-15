@@ -14,10 +14,10 @@ references:
   - SPEC-0001-C7: Extensibility & Plugin Architecture
   - SPEC-0101: Morphology Engine (planned)
   - SPEC-0201: Rule Engine (planned)
-  - SPEC-0301: Grammar Runtime (planned)
-  - SPEC-0401: Knowledge Graph Engine (planned)
-  - SPEC-0501: Explanation Engine (planned)
-  - SPEC-0601: Plugin System (planned)
+  - SPEC-0301: Grammar Runtime
+  - SPEC-0401: Knowledge Graph Engine
+  - SPEC-0501: Explanation Engine
+  - SPEC-0601: Plugin System
   - RFC-0003: Grammar Virtual Machine (proposed)
 ---
 

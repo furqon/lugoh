@@ -14,7 +14,7 @@ references:
   - SPEC-0001-C6: Deployment & Runtime Considerations (KB Bundling)
   - SPEC-0001-C8: Security, Validation & Error Handling (KB Integrity)
   - SPEC-0001-C9: Performance Targets & Constraints (KB Size & Lookup)
-  - SPEC-0401: Knowledge Graph Engine (planned)
+  - SPEC-0401: Knowledge Graph Engine
   - KB-0006: Pronouns
   - KB-0007: Morphological Features
 ---

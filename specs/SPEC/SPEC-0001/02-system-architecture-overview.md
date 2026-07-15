@@ -16,9 +16,9 @@ references:
   - RFC-0003: Grammar Virtual Machine (proposed)
   - SPEC-0101: Morphology Engine (planned)
   - SPEC-0201: Rule Engine (planned)
-  - SPEC-0301: Grammar Runtime (planned)
-  - SPEC-0401: Knowledge Graph Engine (planned)
-  - SPEC-0501: Explanation Engine (planned)
+  - SPEC-0301: Grammar Runtime
+  - SPEC-0401: Knowledge Graph Engine
+  - SPEC-0501: Explanation Engine
 ---
 
 # Chapter 2: System Architecture Overview
