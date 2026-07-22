@@ -1,6 +1,6 @@
 # AGOS Progress
 
-> **Updated:** July 22, 2026 · **Tests:** 91 ✅
+> **Updated:** July 22, 2026 · **Tests:** 113 ✅ · **Web:** ✅
 
 ---
 
@@ -35,8 +35,8 @@ Input String
 ### Knowledge Base (agos-kb)
 - KB types for KB-0001 through KB-0008
 - KbLoader / KbReader traits, KbSuite container
-- **KB-0004:** WazanPatternLookup trait + Kb0004 struct with 207 stem overrides
-- **Kb0004Config:** Auto-load KB-0004 via `MorphologicalParser::from_config()`
+- **KB-0004:** Expanded to 405 stem overrides + 29 verb profiles + 55 noun profiles
+- Noun/verb profiles fully wired into MOD-04 (Phases D1/D2)
 - Knowledge directory: `knowledge/KB-0004/` (JSON seed data)
 
 ### Integration Tests
@@ -44,11 +44,27 @@ Input String
 - Covers: verbal sentences, nominal sentences, hollow verbs, particles, pronouns,
   definite articles, Andalus school, error cases
 
+### Web API Server (agos-server)
+- **`POST /analyze`** — Runs 5-stage pipeline, returns full JSON analysis
+- **`GET /health`** — KB-0004 stats + server status
+- KB-0004 auto-loaded at startup via `MorphologicalParser::with_kb()`
+- CORS enabled, school selection, strip tashkeel/tatweel per-request
+- Progressive error handling (partial results on failure)
+
+### Web Frontend (agos-web)
+- **Vite 6 + Vue 3.5 + Tailwind CSS 3.4 + TypeScript 5.7**
+- RTL Arabic textarea with example buttons, school selector, options
+- Dark mode (system preference + toggle)
+- Results display: timing accordion → tokens → morphology → syntax tree
+- Color-coded POS badges (6 types) and syntactic roles (9 types)
+- PWA-ready (manifest, meta tags)
+- `npm run build` → 26KB CSS + 91KB JS
+
 ---
 
 ## 📋 Next Milestones
 
-### Phase A: Complete Front-End (Priority: High)
+### Phase A: Complete Front-End Pipeline (Priority: High)
 
 | Step | What | Why |
 |------|------|-----|
@@ -60,7 +76,7 @@ Input String
 
 | Step | What | Why |
 |------|------|-----|
-| **B1** | Expand KB-0004 stem overrides → 5,000 entries | Replace heuristic lists fully |
+| **B1** | Expand KB-0004 stem overrides → 5,000+ entries | Replace heuristic lists fully |
 | **B2** | Build KB-0001 root database | ~15,000 Arabic roots from spec |
 | **B3** | Implement KB-0002 wazan matching | Replace check_verb_form() match arms |
 | **B4** | Compiled binary format + mmap loading | Production performance targets |
@@ -73,13 +89,14 @@ Input String
 | **C2** | MOD-09 BytecodeGenerator | Serialize GIR → bytecode |
 | **C3** | MOD-10 GVM | Execute bytecode → AnalysisResult |
 
-### Phase D: Delivery (Priority: Medium)
+### Phase D: Delivery & Polish (Priority: Medium)
 
 | Step | What | Why |
 |------|------|-----|
-| **D1** | MOD-11 ExplanationEngine | Human-readable I'rab output |
-| **D2** | CLI executable (`agos`) | Parse from command line |
-| **D3** | API server | Parse via HTTP |
+| **D1** | PWA service worker | Offline caching, installable app |
+| **D2** | Request size limiting | Reject texts > 10K chars in server |
+| **D3** | MOD-11 ExplanationEngine | Human-readable I'rab output |
+| **D4** | CLI executable (`agos`) | Parse from command line |
 
 ---
 
@@ -91,6 +108,7 @@ Input String
 | Pipeline stages are **stateless** | All state in PipelineContext, stages are pure functions |
 | `FeatureBitfield` uses **builder pattern** | `.with_gender(x).with_number(y)` — readable and composable |
 | KB-0004 **JSON seed data** in `knowledge/KB-0004/` | Development format; production will use `.agos-kb` binary with mmap |
+| **Web frontend** decoupled from Rust | Vite dev server proxies `/api` → Axum backend; CORS for production |
 
 ### KB-0004 Confidence Semantics
 
@@ -109,5 +127,8 @@ Input String
 |-------|-------|--------|
 | `agos-core` | 4 | ✅ |
 | `agos-morph` | 80 (63 unit + 17 integration) | ✅ |
+| `agos-syntax` | 18 | ✅ |
 | `agos-kb` | 11 | ✅ |
-| **Total** | **91** | **✅ All passing** |
+| `agos-server` | — | ✅ (compiles) |
+| **Web frontend** | — | ✅ (vue-tsc + vite build) |
+| **Total** | **113 + web** | **✅ All passing** |

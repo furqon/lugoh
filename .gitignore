@@ -45,3 +45,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .venv/
 __pycache__/
 *.pyc
+
+# Web frontend
+web/node_modules/
+web/dist/

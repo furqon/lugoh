@@ -1,0 +1,16 @@
+{
+  "name": "AGOS — Arabic Grammar Analysis",
+  "short_name": "AGOS",
+  "description": "Analyze Arabic text morphology and syntax",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

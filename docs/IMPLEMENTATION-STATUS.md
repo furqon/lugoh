@@ -10,7 +10,7 @@
 
 ## Overview
 
-The AGOS Rust workspace consists of **4 crates** + **1 data directory**:
+The AGOS Rust workspace consists of **6 crates** + **1 data directory** + **1 web app**:
 
 | Crate | Lines | Purpose |
 |-------|-------|---------|
@@ -18,8 +18,10 @@ The AGOS Rust workspace consists of **4 crates** + **1 data directory**:
 | `agos-morph` | ~3,500+ | MOD-01 through MOD-04 (morphology pipeline stages) |
 | `agos-syntax` | ~800+ | MOD-05 (syntactic parsing) |
 | `agos-kb` | ~1,500+ | KB types, loader, traits, KB-0004 implementation |
+| **`agos-server`** | **~300** | Axum web API: POST /analyze, GET /health, KB auto-load |
+| `agos-web` | **~700** | **Vite + Vue 3 + Tailwind frontend (new)** |
 
-**Tests:** 91 total (80 agos-morph, 11 agos-kb)
+**Tests:** 113 total (4 core + 11 kb + 80 morph + 18 syntax)
 
 ---
 
@@ -325,7 +327,98 @@ Also not yet implemented:
 
 ---
 
-## 9. Key Architecture Decisions Made During Implementation
+## 9. Web Frontend — `agos-web`
+
+**Location:** `web/` directory (Vite + Vue 3 + Tailwind CSS)
+
+### Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Build | Vite 6 + TypeScript 5.7 |
+| Framework | Vue 3.5 (Composition API) |
+| Styling | Tailwind CSS 3.4 (dark mode via `class`) |
+| Fonts | Inter (UI), Noto Naskh Arabic (Arabic text), JetBrains Mono (data) |
+| API | Proxy via Vite dev server (`/api` → `localhost:3000`) |
+| PWA | Manifest JSON, theme-color meta tags |
+
+### Components
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| `App.vue` | `src/App.vue` | Root layout: header, hero, form, error banner, results, footer. Dark mode toggle, GitHub link |
+| `AnalyzeForm.vue` | `src/components/AnalyzeForm.vue` | RTL Arabic textarea, 4 example buttons, school selector (5 schools), strip tashkeel/tatweel toggles, animated submit |
+| `ResultsDisplay.vue` | `src/components/ResultsDisplay.vue` | Summary bar (timing, token count), 5-stage timing accordion, normalized text preview, token detail chips, tab switcher (morphology / syntax) |
+| `MorphologyView.vue` | `src/components/MorphologyView.vue` | Token-by-token breakdown: POS badges (6 color-coded types), root + wazan with confidence, feature chips with icons, alternative analyses count, unknown stems warning |
+| `SyntaxTreeView.vue` | `src/components/SyntaxTreeView.vue` | Visual tree with color-coded syntactic roles (9 types), sentence type badges, indented constituent hierarchy, metadata footer |
+
+### API Integration
+
+| File | Purpose |
+|------|---------|
+| `src/api.ts` | `analyzeText()` — POSTs JSON to `/api/analyze`; returns typed `AnalyzeResponse` |
+| `src/types.ts` | 15 TypeScript interfaces matching the Rust backend's serde JSON output |
+
+### Build
+
+```bash
+cd web && npm install    # 126 packages, 0 vulnerabilities
+cd web && npm run build  # vue-tsc + vite build → dist/
+                        # Output: 26KB CSS + 91KB JS (gzipped ~30KB)
+```
+
+### Design Highlights
+
+- **Dark mode:** Detects `prefers-color-scheme`, toggle persists via class on `<html>`
+- **RTL-aware:** Arabic textareas use `font-arabic` class with `dir="rtl"`, UI chrome stays LTR
+- **Progressive disclosure:** Summary bar → stage timings → token details → morphology → syntax
+- **Error resilience:** Returns partial results up to the failing stage, clear error messages
+- **Responsive:** Single column on mobile, `max-w-5xl` on desktop
+
+## 10. Web API Server — `agos-server`
+
+**Location:** `agos-server/src/main.rs`
+
+| Feature | Status | Notes |
+|---------|--------|-------|
+| `GET /health` | ✅ | Returns KB-0004 stats (stem overrides, verb/noun profiles) |
+| `POST /analyze` | ✅ | Runs 5-stage pipeline, returns full JSON |
+| KB-0004 auto-load | ✅ | Loads from `knowledge/KB-0004/` at startup via `with_kb()` |
+| CORS (dev) | ✅ | Allows all origins via `tower-http::cors` |
+| School selection | ✅ | Basra, Kufa, Baghdad, Andalus, Modern |
+| Strip tashkeel/tatweel | ✅ | Per-request configuration |
+| Per-stage timing | ✅ | Returns `timing_ms` map in response |
+| Progressive errors | ✅ | Returns partial results up to failing stage |
+
+### Request
+
+```json
+POST /analyze
+{
+  "text": "السَّلَامُ عَلَيْكُمْ",
+  "school": "Basra",
+  "strip_tashkeel": false,
+  "strip_tatweel": true
+}
+```
+
+### Response
+
+```json
+{
+  "success": true,
+  "timing_ms": { "MOD-01": 0.12, "MOD-02": 0.05, ... },
+  "stages": {
+    "normalized": { "normalized_text": "...", "char_count": 14, ... },
+    "tokens": { "token_count": 3, "word_count": 2, "tokens": [...] },
+    "segmented": { "total_tokens": 3, "segmentable_tokens": 2, ... },
+    "morphology": { "token_analyses": [...], "metadata": {...} },
+    "syntax": { "trees": [...], "metadata": {...} }
+  }
+}
+```
+
+## 11. Key Architecture Decisions Made During Implementation
 
 ### KB-0004 integration follows a 3-phase plan (defined in KB-0004 proposal):
 

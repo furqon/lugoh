@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  input, textarea, select {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm;
+  }
+
+  .card-header {
+    @apply px-5 py-4 border-b border-slate-100 dark:border-slate-800;
+  }
+
+  .card-body {
+    @apply p-5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-2.5 font-medium text-sm
+           bg-agos-600 hover:bg-agos-700 active:bg-agos-800
+           text-white rounded-xl transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-agos-500 focus:ring-offset-2 dark:focus:ring-offset-slate-900;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-medium text-sm
+           bg-slate-100 hover:bg-slate-200 active:bg-slate-300
+           dark:bg-slate-800 dark:hover:bg-slate-700 dark:active:bg-slate-600
+           text-slate-700 dark:text-slate-300 rounded-xl transition-all duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 text-sm rounded-xl border border-slate-300 dark:border-slate-700
+           bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100
+           placeholder:text-slate-400 dark:placeholder:text-slate-600
+           focus:border-agos-500 focus:ring-2 focus:ring-agos-500/20
+           transition-all duration-200;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium rounded-full;
+  }
+
+  .badge-verb { @apply badge bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300; }
+  .badge-noun { @apply badge bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300; }
+  .badge-adjective { @apply badge bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300; }
+  .badge-particle { @apply badge bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300; }
+  .badge-pronoun { @apply badge bg-rose-100 text-rose-800 dark:bg-rose-900/40 dark:text-rose-300; }
+
+  .tree-line {
+    @apply border-r-2 border-slate-300 dark:border-slate-700;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-slate-200 dark:bg-slate-800 rounded-lg;
+  }
+}
