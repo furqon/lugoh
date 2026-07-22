@@ -1,0 +1,10 @@
+[package]
+name = "agos-syntax"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "AGOS Syntax Engine — Arabic syntactic (nahw) parsing, constituency trees, and i'rab role assignment (MOD-05)"
+
+[dependencies]
+agos-core = { path = "../agos-core" }

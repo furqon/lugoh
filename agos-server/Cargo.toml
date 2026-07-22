@@ -1,0 +1,21 @@
+[package]
+name = "agos-server"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "AGOS Web API — Axum server exposing morphological analysis endpoints"
+
+[dependencies]
+agos-core = { path = "../agos-core" }
+agos-kb = { path = "../agos-kb" }
+agos-morph = { path = "../agos-morph" }
+agos-syntax = { path = "../agos-syntax" }
+
+axum = { version = "0.7", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tower-http = { version = "0.5", features = ["cors"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }

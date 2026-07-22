@@ -1,0 +1,157 @@
+# AGOS CI Pipeline
+#
+# Runs on every push and pull request to the main branch.
+# Per SPEC-0001-C8 §6.2.1, the CI gate enforces:
+#   - cargo check (compilation)
+#   - cargo test (unit + integration)
+#   - cargo clippy (linting with -D warnings)
+#   - cargo fmt --check (formatting)
+#   - cargo audit (dependency vulnerability scanning)
+#
+# Per SPEC-0001-C9, benchmark regression tracking is included
+# for performance-critical paths.
+
+name: AGOS CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  # ──────────────────────────────────────────────
+  #  Job 1: Check & Lint
+  # ──────────────────────────────────────────────
+  check:
+    name: Check & Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: cargo check
+        run: cargo check --workspace --all-targets
+
+      - name: cargo fmt
+        run: cargo fmt --all -- --check
+
+      - name: cargo clippy
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+  # ──────────────────────────────────────────────
+  #  Job 2: Test
+  # ──────────────────────────────────────────────
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: cargo test
+        run: cargo test --workspace --all-targets
+
+      - name: cargo test (doc-tests)
+        run: cargo test --workspace --doc
+
+  # ──────────────────────────────────────────────
+  #  Job 3: Security Audit
+  # ──────────────────────────────────────────────
+  audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo-audit
+        run: cargo install cargo-audit --locked
+
+      - name: Generate lockfile if missing
+        run: cargo generate-lockfile
+
+      - name: cargo audit
+        run: cargo audit
+
+  # ──────────────────────────────────────────────
+  #  Job 4: Cross-Platform Build (Windows + macOS)
+  # ──────────────────────────────────────────────
+  build-cross:
+    name: Build (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: cargo build
+        run: cargo build --workspace --all-targets
+
+  # ──────────────────────────────────────────────
+  #  Job 5: MSRV Check (Minimum Supported Rust Version)
+  # ──────────────────────────────────────────────
+  msrv:
+    name: MSRV Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain (MSRV)
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: 1.81.0
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: cargo check (MSRV)
+        run: cargo check --workspace --all-targets
+
+  # ──────────────────────────────────────────────
+  #  Job 6: Documentation
+  # ──────────────────────────────────────────────
+  docs:
+    name: Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: cargo doc
+        run: cargo doc --workspace --no-deps
+
+      - name: Check for broken intra-doc links
+        env:
+          RUSTDOCFLAGS: "-D warnings"
+        run: cargo doc --workspace --no-deps

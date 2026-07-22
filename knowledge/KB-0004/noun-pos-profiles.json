@@ -1,0 +1,70 @@
+{
+  "description": "Expanded POS profiles for common Arabic noun and adjective pattern templates. Covers masdar patterns, active/passive participles, agent/patient nouns, place/time nouns, instrument nouns, broken plurals, relative adjectives, comparative/superlative, diminutives, and color/defect patterns.",
+  "entries": [
+    {"canonical_pattern": "فَعْل", "template_script": "C₁aC₂C₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 3, "noun_type": "masdar"},
+    {"canonical_pattern": "فِعْل", "template_script": "C₁iC₂C₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 3, "noun_type": "masdar"},
+    {"canonical_pattern": "فُعْل", "template_script": "C₁uC₂C₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 3, "noun_type": "masdar"},
+    {"canonical_pattern": "فَعَل", "template_script": "C₁aC₂aC₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 3, "noun_type": "masdar"},
+    {"canonical_pattern": "فَعِل", "template_script": "C₁aC₂iC₃", "default_pos": "Adjective", "default_confidence": 0.20, "min_stem_len": 3, "max_stem_len": 3, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعُل", "template_script": "C₁aC₂uC₃", "default_pos": "Adjective", "default_confidence": 0.15, "min_stem_len": 3, "max_stem_len": 3, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعَال", "template_script": "C₁aC₂āC₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 4, "noun_type": "masdar"},
+    {"canonical_pattern": "فِعَال", "template_script": "C₁iC₂āC₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 4, "noun_type": "masdar"},
+    {"canonical_pattern": "فُعَال", "template_script": "C₁uC₂āC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 3, "max_stem_len": 4, "noun_type": "masdar"},
+    {"canonical_pattern": "فَعِيل", "template_script": "C₁aC₂īC₃", "default_pos": "Adjective", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 4, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعُول", "template_script": "C₁aC₂ūC₃", "default_pos": "Adjective", "default_confidence": 0.20, "min_stem_len": 3, "max_stem_len": 4, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعَالَة", "template_script": "C₁aC₂āC₃a", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+    {"canonical_pattern": "فِعَالَة", "template_script": "C₁iC₂āC₃a", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar_occupation"},
+    {"canonical_pattern": "فَعَلَان", "template_script": "C₁aC₂aC₃ān", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+    {"canonical_pattern": "فَعَلَانَة", "template_script": "C₁aC₂aC₃āna", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "masdar"},
+    {"canonical_pattern": "فِعْلَان", "template_script": "C₁iC₂C₃ān", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+    {"canonical_pattern": "فُعْلَان", "template_script": "C₁uC₂C₃ān", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+    {"canonical_pattern": "فُعُول", "template_script": "C₁uC₂ūC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 3, "max_stem_len": 4, "noun_type": "masdar"},
+    {"canonical_pattern": "فُعُولَة", "template_script": "C₁uC₂ūC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+    {"canonical_pattern": "تَفْعَال", "template_script": "taC₁C₂āC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+    {"canonical_pattern": "تَفْعِلَة", "template_script": "taC₁C₂iC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+
+    {"canonical_pattern": "فَعْلَة", "template_script": "C₁aC₂C₃a", "default_pos": "Noun", "default_confidence": 0.30, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "ism_marrati"},
+    {"canonical_pattern": "فِعْلَة", "template_script": "C₁iC₂C₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "ism_hayati"},
+    {"canonical_pattern": "فُعْلَة", "template_script": "C₁uC₂C₃a", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "masdar"},
+    {"canonical_pattern": "فَعَلَة", "template_script": "C₁aC₂aC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "jam_qillah"},
+
+    {"canonical_pattern": "فَاعِل", "template_script": "C₁āC₂iC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "ism_fail"},
+    {"canonical_pattern": "فَاعِلَة", "template_script": "C₁āC₂iC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "ism_fail_feminine"},
+    {"canonical_pattern": "مَفْعُول", "template_script": "maC₁C₂ūC₃", "default_pos": "Adjective", "default_confidence": 0.15, "min_stem_len": 4, "max_stem_len": 6, "noun_type": "ism_maful"},
+    {"canonical_pattern": "مَفْعُولَة", "template_script": "maC₁C₂ūC₃a", "default_pos": "Adjective", "default_confidence": 0.15, "min_stem_len": 5, "max_stem_len": 7, "noun_type": "ism_maful_feminine"},
+    {"canonical_pattern": "فَعِيلَة", "template_script": "C₁aC₂īC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "ism_marrati"},
+    {"canonical_pattern": "فَعُولَة", "template_script": "C₁aC₂ūC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "masdar"},
+
+    {"canonical_pattern": "مَفْعَل", "template_script": "maC₁C₂aC₃", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "ism_makan"},
+    {"canonical_pattern": "مَفْعِل", "template_script": "maC₁C₂iC₃", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "ism_makan"},
+    {"canonical_pattern": "مَفْعَلَة", "template_script": "maC₁C₂aC₃a", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "ism_makan"},
+    {"canonical_pattern": "مِفْعَل", "template_script": "miC₁C₂aC₃", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "ism_alah"},
+    {"canonical_pattern": "مِفْعَلَة", "template_script": "miC₁C₂aC₃a", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "ism_alah"},
+    {"canonical_pattern": "مِفْعَال", "template_script": "miC₁C₂āC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "ism_alah"},
+
+    {"canonical_pattern": "فَعَّال", "template_script": "C₁aC₂C₂āC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعَّالَة", "template_script": "C₁aC₂C₂āC₃a", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "sifah_mushabbahah_feminine"},
+    {"canonical_pattern": "فَعْلَان", "template_script": "C₁aC₂C₃ān", "default_pos": "Adjective", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعْلَى", "template_script": "C₁aC₂C₃ā", "default_pos": "Adjective", "default_confidence": 0.25, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "sifah_mushabbahah_feminine"},
+    {"canonical_pattern": "فُعْلَى", "template_script": "C₁uC₂C₃ā", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "masdar"},
+    {"canonical_pattern": "أَفْعَل", "template_script": "aC₁C₂aC₃", "default_pos": "Adjective", "default_confidence": 0.30, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "tafdil"},
+
+    {"canonical_pattern": "فَعْلَاء", "template_script": "C₁aC₂C₃āʾ", "default_pos": "Adjective", "default_confidence": 0.30, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "sifah_mushabbahah"},
+    {"canonical_pattern": "فَعْلِيّ", "template_script": "C₁aC₂C₃iyy", "default_pos": "Adjective", "default_confidence": 0.30, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "nisbah"},
+    {"canonical_pattern": "فِعْلِيّ", "template_script": "C₁iC₂C₃iyy", "default_pos": "Adjective", "default_confidence": 0.30, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "nisbah"},
+
+    {"canonical_pattern": "فُعَيْل", "template_script": "C₁uC₂ayC₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "tasghir"},
+    {"canonical_pattern": "فُعَيْعِل", "template_script": "C₁uC₂ayC₃iC₄", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "tasghir"},
+
+    {"canonical_pattern": "فَاعُول", "template_script": "C₁āC₂ūC₃", "default_pos": "Noun", "default_confidence": 0.15, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "ism_alah"},
+    {"canonical_pattern": "فَيْعُول", "template_script": "C₁ayC₂ūC₃", "default_pos": "Adjective", "default_confidence": 0.15, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "sifah_mushabbahah"},
+
+    {"canonical_pattern": "فَوَاعِل", "template_script": "C₁awāC₂iC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "jam_taksir"},
+    {"canonical_pattern": "فَعَالِل", "template_script": "C₁aC₂āC₃iC₄", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "jam_taksir"},
+    {"canonical_pattern": "فَعَاعِل", "template_script": "C₁aC₂āC₃iC₄", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "jam_taksir"},
+    {"canonical_pattern": "أَفَاعِل", "template_script": "aC₁āC₂iC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 5, "max_stem_len": 6, "noun_type": "jam_taksir"},
+    {"canonical_pattern": "أَفْعَال", "template_script": "aC₁C₂āC₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 4, "max_stem_len": 5, "noun_type": "jam_taksir"},
+    {"canonical_pattern": "فُعَّل", "template_script": "C₁uC₂C₂aC₃", "default_pos": "Noun", "default_confidence": 0.20, "min_stem_len": 4, "max_stem_len": 4, "noun_type": "jam_taksir"},
+    {"canonical_pattern": "جَمْع", "template_script": "C₁aC₂C₃", "default_pos": "Noun", "default_confidence": 0.25, "min_stem_len": 3, "max_stem_len": 5, "noun_type": "jam_taksir"}
+  ]
+}

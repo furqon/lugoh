@@ -1,0 +1,23 @@
+{
+  "id": "KB-0004",
+  "title": "Pattern POS Database — Wazan & Noun Pattern Profiles",
+  "version": "1.0.0-phase1",
+  "status": "draft",
+  "description": "Authoritative pattern-to-POS mapping and stem-level POS overrides. Phase 1 seed data from COMMON_NOUNS_3L and COMMON_VERBS_3L heuristic lists in agos-morph.",
+  "created_at": "2026-07-22T00:00:00Z",
+  "updated_at": "2026-07-22T00:00:00Z",
+  "entry_counts": {
+    "stem_overrides": 167,
+    "verb_pattern_profiles": 10,
+    "noun_pattern_profiles": 24
+  },
+  "sources": [
+    "agos-morph/src/morphological_parser.rs:COMMON_NOUNS_3L",
+    "agos-morph/src/morphological_parser.rs:COMMON_VERBS_3L",
+    "specs/KB/KB-0004-wazan-pattern-database.md"
+  ],
+  "dependencies": {
+    "KB-0001": ">= 1.0.0",
+    "KB-0002": ">= 1.0.0"
+  }
+}
